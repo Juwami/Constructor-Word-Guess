@@ -1,13 +1,22 @@
-function Letter(guessedLetter) {
-    this.guessedLetter = guessedLetter
-    this.hasGuessedYet = 'false'
-    this.hasItBeenGuessed = function() {
+function Letter(character) {
+    this.character = character
+    this.isGuessed = false
+    this.getCharacter = function () {
+        return this.isGuessed ? this.character : '_';
+        // -- Another way to do above --
+        // if (this.isGuessed) {
+        //     return this.character;
+        // } 
+        // else {
+        //     return '_';
+        // }
     }
-    this.guessCheck = function(x) {
-
+    this.checkGuess = function (guess) {
+        if (guess.toLowerCase() === this.character.toLowerCase()) {
+            this.isGuessed = true;
+        }
+        return this.isGuessed;
     }
-    
 }
 
-let guessed = new Letter('T')
-console.log(guessed)
+module.exports = Letter;
