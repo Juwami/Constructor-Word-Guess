@@ -1,5 +1,7 @@
 function Letter(character) {
+    // Constructor letter
     this.character = character
+    // isGuessed default boolean value
     this.isGuessed = false
     this.getCharacter = function () {
         return this.isGuessed ? this.character : '_';
@@ -19,4 +21,5 @@ function Letter(character) {
     }
 }
 
+// Code to export Letter constructor
 module.exports = Letter;
