@@ -1,6 +1,6 @@
 const Letter = require('./Letter')
 
-function Word (word) {
+function Word () {
     this.lettersArr = []
     this.getPuzzle = function () {
         const puzzle = [];
