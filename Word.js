@@ -17,6 +17,15 @@ function Word (word) {
             currentLetter.checkGuess(character);
         }
     }
+    this.populateLetters = function (word) {
+        // console.log(word);
+        const letters = word.split('');
+        for (let i = 0; i < letters.length; i++) {
+            const currentLetter = new Letter(letters[i]);
+            this.lettersArr.push(currentLetter);
+        }
+
+    }
 }
 
-module.export = Word;
+module.exports = Word;
