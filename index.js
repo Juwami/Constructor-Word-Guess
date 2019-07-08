@@ -3,10 +3,10 @@ const inquirer = require('inquirer')
 
 const wordbank = ['Complete','Blanket','Tower','Doorbell','Brothers','Party','Wagon','Money','Vacation','Computer','Wheelchair','Fingernail','Vegetable','Television'];
 
-let remainingGuesses = 7
+let remainingGuesses = 15
 
 function startGame() {
-    remainingGuesses = 7
+    remainingGuesses = 15
     const randomIndex = Math.floor(Math.random() * wordbank.length);
     const selectedWord = new Word();
     selectedWord.populateLetters(wordbank[randomIndex]);
@@ -25,10 +25,9 @@ function askLetter(selectedWord) {
         .then(function (response) {
             remainingGuesses--
             console.log(`You have ${remainingGuesses} guesses left.`)
-            // console.log(response.guess)
             selectedWord.guessLetter(response.guess);
             showPuzzle(selectedWord);
-            askLetter(selectedWord)
+            askLetter(selectedWord);
         })
     }
     else {
@@ -54,5 +53,6 @@ function askLetter(selectedWord) {
 function showPuzzle(word) {
     console.log(word.getPuzzle())
 }
+
 
 startGame();
