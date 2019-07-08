@@ -3,9 +3,10 @@ const inquirer = require('inquirer')
 
 const wordbank = ['Complete','Blanket','Tower','Doorbell','Brothers','Party','Wagon','Money','Vacation','Computer','Wheelchair','Fingernail','Vegetable','Television'];
 
-let remainingGuesses = 2
+let remainingGuesses = 7
 
 function startGame() {
+    remainingGuesses = 7
     const randomIndex = Math.floor(Math.random() * wordbank.length);
     const selectedWord = new Word();
     selectedWord.populateLetters(wordbank[randomIndex]);
@@ -40,15 +41,14 @@ function askLetter(selectedWord) {
             choices: ['Yes','No']
         }])
         .then(function (response) {
-            console.log(response)
-            // if (response.yes) {
-            //     startGame();
-            // }
+            if (response.endgame === 'Yes') {
+                startGame();
+            }
+            else {
+                return;
+            }
         })
     }
-    // if they won, say you win, and run startGame()
-    // if haven't solved, run askLetter();
-    // can add askCount
 }
 
 function showPuzzle(word) {
