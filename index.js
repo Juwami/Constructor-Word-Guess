@@ -54,7 +54,7 @@ function askLetter(selectedWord) {
                 .prompt([{
                     type: "list",
                     name: "endgame",
-                    message: "Do you want to start over?",
+                    message: "Do you want to play again?",
                     choices: ['Yes', 'No']
                 }])
                 .then(function (response) {
