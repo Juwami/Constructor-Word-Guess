@@ -24,7 +24,6 @@ function Word () {
             const currentLetter = new Letter(letters[i]);
             this.lettersArr.push(currentLetter);
         }
-
     }
 }
 
